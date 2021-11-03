@@ -12,14 +12,14 @@ The DNS of the Fabric client node EC2 instance can be found in the output of the
 created in [Part 1](../ngo-fabric/README.md)
 
 ```
-ssh ec2-user@<dns of EC2 instance> -i ~/<Fabric network name>-keypair.pem
+ssh ec2-user@<dns of EC2 instance> -i ~/<Fabric network name>-member-keypair.pem
 ```
 
 You should have already cloned this repo in [Part 1](../ngo-fabric/README.md)
 
 ```
 cd ~
-git clone https://github.com/aws-samples/non-profit-blockchain.git
+git clone https://github.com/rathsubhajeetTNO/non-profit-blockchain.git
 ```
 
 You will need to set the context before carrying out any Fabric CLI commands. We do this 
@@ -106,7 +106,7 @@ export REGION=us-east-1
 export STACKNAME=$(aws cloudformation describe-stacks --region $REGION --query 'Stacks[?Description==`Amazon Managed Blockchain. Creates network with a single member and peer node`] | [0].StackName' --output text)
 export NETWORKNAME=$(aws cloudformation describe-stacks --stack-name $STACKNAME --region $REGION --query 'Stacks[0].Outputs[?OutputKey==`NetworkName`].OutputValue' --output text)
 export EC2URL=$(aws cloudformation describe-stacks --stack-name ngo-fabric-client-node --query "Stacks[0].Outputs[?OutputKey=='EC2URL'].OutputValue" --output text --region $REGION)
-ssh ec2-user@$EC2URL -i ~/$NETWORKNAME-keypair.pem
+ssh ec2-user@$EC2URL -i ~/$NETWORKNAME-member-keypair.pem
 ```
 
 On the Fabric client node.
