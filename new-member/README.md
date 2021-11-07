@@ -97,7 +97,7 @@ In the Cloud9 console, click 'Create Environment'. Using 'us-east-1' for the reg
 
 ```
 cd ~
-git clone https://github.com/aws-samples/non-profit-blockchain.git
+git clone https://github.com/rathsubhajeetTNO/non-profit-blockchain.git
 ```
 
 Update your AWS CLI to the latest version.
