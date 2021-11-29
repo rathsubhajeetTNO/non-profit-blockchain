@@ -105,7 +105,6 @@ cd ~
 export NETWORKNAME=$(aws cloudformation describe-stacks --stack-name $STACKNAME --region $REGION --query 'Stacks[0].Outputs[?OutputKey==`NetworkName`].OutputValue' --output text)
 export EC2URL=$(aws cloudformation describe-stacks --stack-name ngo-fabric-client-node --query "Stacks[0].Outputs[?OutputKey=='EC2URL'].OutputValue" --output text --region $REGION)
 ssh ec2-user@$EC2URL -i ~/$NETWORKNAME-keypair.pem
-ssh ec2-user@<dns of EC2 instance> -i ~/<Fabric network name>-member-keypair.pem
 ```
 
 Clone the repo:
